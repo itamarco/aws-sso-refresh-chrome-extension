@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "AWS SSO Refresh",
+  "version": "1.0.0",
+  "description": "Automatically re-logs you in to AWS SSO.",
+  "icons": {
+    "16": "assets/box.png",
+    "32": "assets/box.png",
+    "48": "assets/box.png",
+    "128": "assets/box.png"
+  },
+  "browser_action": {
+    "default_icon": {
+      "16": "assets/box.png",
+      "32": "assets/box.png",
+      "48": "assets/box.png",
+      "128": "assets/box.png"
+    }
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.awsapps.com/start*"],
+      "js": ["content.js"]
+    }
+  ],
+  "permissions": ["tabs", "activeTab", "notifications"],
+  "web_accessible_resources": ["assets/*"]
+}
